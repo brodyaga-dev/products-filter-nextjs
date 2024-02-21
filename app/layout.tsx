@@ -26,7 +26,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <main className="container mx-auto">{children}</main>
+        <main className="container mx-auto py-12">{children}</main>
       </body>
     </html>
   );

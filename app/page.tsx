@@ -1,4 +1,5 @@
 import { BrandFilter } from "@/components/brand-filter";
+import { CategoryFilter } from "@/components/category-filter";
 import { PriceFilter } from "@/components/price-filter";
 import { ProductCard } from "@/components/product-card";
 import {
@@ -15,7 +16,7 @@ export default function Home() {
       <div className="grid grid-cols-12 gap-8">
         {/* filters sidebar section  */}
         <section className="col-span-12 md:col-span-3">
-          <Card>
+          <Card className="md:sticky top-0">
             <CardHeader>
               <CardTitle>Filters</CardTitle>
               <CardDescription>
@@ -25,6 +26,7 @@ export default function Home() {
             <CardContent className="grid gap-4">
               <PriceFilter />
               <BrandFilter />
+              <CategoryFilter />
             </CardContent>
           </Card>
         </section>
