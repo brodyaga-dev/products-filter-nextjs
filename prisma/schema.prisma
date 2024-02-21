@@ -20,6 +20,7 @@ model Product {
   description String   @db.VarChar(255)
   price       Int
   brand       String   @db.VarChar(60)
+  category    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

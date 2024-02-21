@@ -8,6 +8,7 @@ const products = [
     image: "https://m.media-amazon.com/images/I/51Yvs102CgL._SL1500_.jpg",
     title: "Allen Solly Men's Slim Fit Shirt",
     price: 3999,
+    category: "T-shirt",
   },
   {
     brand: "Eybogler",
@@ -15,6 +16,7 @@ const products = [
     image: "https://m.media-amazon.com/images/I/51byp5tQ86L._SL1000_.jpg",
     title: "EYEBOGLER Polo Neck Half Sleeve Striped Print Casual Men Tshirt",
     price: 256,
+    category: "T-shirt",
   },
   {
     brand: "Nusyl",
@@ -22,6 +24,7 @@ const products = [
     image: "https://m.media-amazon.com/images/I/41qpsB-njtL.jpg",
     title: "Nusyl Girls Solid Color Tshirt (NUGCTSF001)",
     price: 299,
+    category: "T-shirt",
   },
   {
     brand: "EYEBOGLER",
@@ -30,6 +33,7 @@ const products = [
     title:
       "EYEBOGLER Women's Striped Regular fit T-Shirt (T335HS_Green M) EYEBOGLERWomentunicT-Shirt",
     price: 182,
+    category: "T-shirt",
   },
   {
     brand: "Van Heusen",
@@ -37,6 +41,15 @@ const products = [
     image: "https://m.media-amazon.com/images/I/51EI1UA7FKL._SL1165_.jpg",
     title: "Van Heusen Men T-Shirt",
     price: 1819,
+    category: "T-shirt",
+  },
+  {
+    brand: "Fire voltt",
+    description: `【1.83” HD Large Touch Screen】- Fire-Boltt Dazzle Plus comes with a 1.83” HD Full Touch Display for smooth swipes and clear vision. A High Resolution of 240*284 pixel for best display experience`,
+    image: "https://m.media-amazon.com/images/I/61IMVMLW76L._SX679_.jpg",
+    title: "Fire-Boltt Dazzle 1.83",
+    price: 1049,
+    category: "Smartwatch",
   },
 ];
 async function main() {
