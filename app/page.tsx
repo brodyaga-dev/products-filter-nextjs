@@ -1,6 +1,8 @@
+import { PriceFilter } from "@/components/price-filter";
 import { ProductCard } from "@/components/product-card";
 import {
   Card,
+  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -19,6 +21,9 @@ export default function Home() {
                 Refine product listings based on price, brand, and category.
               </CardDescription>
             </CardHeader>
+            <CardContent>
+              <PriceFilter />
+            </CardContent>
           </Card>
         </section>
 
