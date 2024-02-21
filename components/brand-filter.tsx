@@ -1,3 +1,5 @@
+"use client";
+import { filterProducts } from "@/utils/actions";
 import { Label } from "./ui/label";
 import {
   Select,
@@ -7,17 +9,22 @@ import {
   SelectValue,
 } from "./ui/select";
 
-export function BrandFilter() {
+export function BrandFilter({ brands }: { brands: string[] }) {
   return (
     <div className="grid gap-4">
       <Label htmlFor="brand">Brand</Label>
-      <Select>
+      <Select
+        onValueChange={(value) => filterProducts("brand", value)}
+        name="brand"
+      >
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Brand" />
         </SelectTrigger>
         <SelectContent>
-          {[...new Array(6)].map(() => (
-            <SelectItem value="apple">Apple</SelectItem>
+          {brands?.map((brand) => (
+            <SelectItem key={brand} value={brand}>
+              {brand}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>

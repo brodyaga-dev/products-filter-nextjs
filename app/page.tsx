@@ -9,8 +9,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getAllBrands, getAllProducts } from "@/utils/products";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  const products = await getAllProducts({
+    brand: searchParams?.brand,
+  });
+
+  const brands = await getAllBrands();
+
   return (
     <div>
       <div className="grid grid-cols-12 gap-8">
@@ -25,7 +36,7 @@ export default function Home() {
             </CardHeader>
             <CardContent className="grid gap-4">
               <PriceFilter />
-              <BrandFilter />
+              {brands?.length ? <BrandFilter brands={brands} /> : null}
               <CategoryFilter />
             </CardContent>
           </Card>
@@ -33,8 +44,8 @@ export default function Home() {
 
         {/*  products grid section  */}
         <section className="col-span-12 md:col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {[...new Array(10)].map(() => (
-            <ProductCard />
+          {products?.map((product) => (
+            <ProductCard {...product} key={product.id} />
           ))}
         </section>
       </div>
