@@ -1,3 +1,4 @@
+import { BrandFilter } from "@/components/brand-filter";
 import { PriceFilter } from "@/components/price-filter";
 import { ProductCard } from "@/components/product-card";
 import {
@@ -21,8 +22,9 @@ export default function Home() {
                 Refine product listings based on price, brand, and category.
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="grid gap-4">
               <PriceFilter />
+              <BrandFilter />
             </CardContent>
           </Card>
         </section>
