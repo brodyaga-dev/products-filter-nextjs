@@ -4,15 +4,20 @@ type ProductCardProps = {
   image: string;
   title: string;
   description: string;
-  brand: string;
+  brand: {
+    name: string;
+  };
+  categories: {
+    name: string;
+  }[];
   price: number;
 };
 export function ProductCard({
   brand,
-  description,
   image,
   title,
   price,
+  categories,
 }: ProductCardProps) {
   return (
     <Card className="flex flex-col gap-2">
@@ -27,7 +32,10 @@ export function ProductCard({
         <h3 className="font-semibold text-lg md:text-xl line-clamp-1">
           {title}
         </h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400">{brand}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">{brand.name}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">
+          {categories.map((c) => c.name).join(",")}
+        </p>
         <h4 className="font-semibold text-base md:text-lg">Rs {price}</h4>
       </CardContent>
     </Card>

@@ -9,7 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getAllBrands, getAllProducts } from "@/utils/products";
+import { getAllBrands } from "@/utils/brands";
+import { getAllProducts } from "@/utils/products";
 
 export default async function Home({
   searchParams,

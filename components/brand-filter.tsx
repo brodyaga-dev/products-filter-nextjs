@@ -8,8 +8,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import { Brand } from "@prisma/client";
 
-export function BrandFilter({ brands }: { brands: string[] }) {
+type BrandFilterProps = {
+  brands: {
+    id: string;
+    name: string;
+  }[];
+};
+export function BrandFilter({ brands }: BrandFilterProps) {
   return (
     <div className="grid gap-4">
       <Label htmlFor="brand">Brand</Label>
@@ -22,8 +29,8 @@ export function BrandFilter({ brands }: { brands: string[] }) {
         </SelectTrigger>
         <SelectContent>
           {brands?.map((brand) => (
-            <SelectItem key={brand} value={brand}>
-              {brand}
+            <SelectItem key={brand.id} value={brand.name}>
+              {brand.name}
             </SelectItem>
           ))}
         </SelectContent>
