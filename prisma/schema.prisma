@@ -15,7 +15,7 @@ datasource db {
 
 model Category {
   id        String    @id @default(cuid())
-  name      String    @db.VarChar(100)
+  name      String    @unique @db.VarChar(100)
   products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -23,7 +23,7 @@ model Category {
 
 model Brand {
   id        String    @id @default(cuid())
-  name      String    @db.VarChar(100)
+  name      String    @unique @db.VarChar(100)
   products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
@@ -38,7 +38,6 @@ model Product {
   brand       Brand      @relation(fields: [brandId], references: [id])
   categories  Category[]
   brandId     String
-  category    String
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
