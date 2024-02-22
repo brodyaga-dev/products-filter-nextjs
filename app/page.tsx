@@ -1,6 +1,5 @@
-import { BrandFilter } from "@/components/brand-filter";
+import { BrandFilters } from "@/components/brand-filter";
 import { CategoryFilter } from "@/components/category-filter";
-import { PriceFilter } from "@/components/price-filter";
 import { ProductCard } from "@/components/product-card";
 import {
   Card,
@@ -9,7 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { getAllBrands } from "@/utils/brands";
+import { getAllCategories } from "@/utils/categories";
 import { getAllProducts } from "@/utils/products";
 
 export default async function Home({
@@ -18,10 +19,12 @@ export default async function Home({
   searchParams?: { [key: string]: string | string[] | undefined };
 }) {
   const products = await getAllProducts({
-    brand: searchParams?.brand,
+    brands: searchParams?.brands,
+    categories: searchParams?.categories,
   });
 
   const brands = await getAllBrands();
+  const categories = await getAllCategories();
 
   return (
     <div>
@@ -36,9 +39,10 @@ export default async function Home({
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
-              <PriceFilter />
-              {brands?.length ? <BrandFilter brands={brands} /> : null}
-              <CategoryFilter />
+              <Separator />
+              {brands?.length ? <BrandFilters brands={brands} /> : null}
+              <Separator />
+              <CategoryFilter categories={categories} />
             </CardContent>
           </Card>
         </section>
